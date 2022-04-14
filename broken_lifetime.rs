@@ -29,3 +29,22 @@ fn main() {
 
     run(python, &mut participant);
 }
+
+
+/*
+error[E0621]: explicit lifetime required in the type of `participant`
+  --> src/main.rs:21:5
+   |
+16 | fn run<'a>(py : Python<'a>, participant : &'_ mut Participant)
+   |                                           ------------------- help: add explicit lifetime `'static` to the type of `participant`: `&'static mut Participant`
+...
+21 |     rayon::spawn(move || {
+   |     ^^^^^^^^^^^^ lifetime `'static` required
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0621`.
+error: could not compile `duranti`
+
+To learn more, run the command again with --verbose.
+*/
